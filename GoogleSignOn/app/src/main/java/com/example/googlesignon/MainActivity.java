@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements com.google.androi
 
 	String serverClientId = "<Client ID from console.developers.google.com>";
 	com.google.android.gms.auth.api.signin.GoogleSignInOptions gso = new com.google.android.gms.auth.api.signin.GoogleSignInOptions.Builder(com.google.android.gms.auth.api.signin.GoogleSignInOptions.DEFAULT_SIGN_IN)
-		.requestServerAuthCode(serverClientId)
+		.requestIdToken(serverClientId)
 		.requestEmail()
 		.build();
 
@@ -59,20 +59,15 @@ public class MainActivity extends AppCompatActivity implements com.google.androi
 
             if (result.isSuccess()) {
 		android.util.Log.i( TAG, "Success !!" );
-                // [START get_auth_code]
                 com.google.android.gms.auth.api.signin.GoogleSignInAccount acct = result.getSignInAccount();
-                String authCode = acct.getServerAuthCode();
-		android.util.Log.i( TAG, "authCode: " + authCode );
+		String idToken = acct.getIdToken();
+		android.util.Log.i( TAG, "idToken: " + idToken );
 
-                // Show signed-in UI.
-                //mAuthCodeTextView.setText(getString(R.string.auth_code_fmt, authCode));
-                //updateUI(true);
+		ValidateAuthCodeTask validateAuthCodeTask = new ValidateAuthCodeTask( idToken );
+		String[] passing = {};
+		validateAuthCodeTask.execute( passing );
 
-                // TODO(user): send code to server and exchange for access/refresh/ID tokens.
-                // [END get_auth_code]
             } else {
-                // Show signed-out UI.
-                //updateUI(false);
 		android.util.Log.i( TAG, "Failure" );
             }
         }
