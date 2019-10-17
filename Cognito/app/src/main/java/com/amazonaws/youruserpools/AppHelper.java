@@ -87,6 +87,8 @@ public class AppHelper {
      */
     private static final String clientId = ;
 
+
+    public static final String identityPoolId = ;
     /**
      * App secret associated with your app id - if the App id does not have an associated App secret,
      * set the App secret to null.

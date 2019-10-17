@@ -27,6 +27,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
+
+import com.amazonaws.regions.Regions;
 import com.google.android.material.navigation.NavigationView;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -529,6 +531,11 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onSuccess(CognitoUserSession cognitoUserSession, CognitoDevice device) {
             Log.d(TAG, " -- Auth Success");
+
+            com.amazonaws.youruserpools.async.GetCredentialsTask task = new com.amazonaws.youruserpools.async.GetCredentialsTask();
+            String[] passing = {};
+            task.execute( passing );
+
             AppHelper.setCurrSession(cognitoUserSession);
             AppHelper.newDevice(device);
             closeWaitDialog();
