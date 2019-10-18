@@ -72,6 +72,22 @@
             android:name="com.amazonaws.youruserpools.ChooseMFA"
             android:label="@string/title_activity_choose_mfa"
             android:theme="@style/AppTheme.NoActionBar" />
-    </application>
 
+
+    <service
+        android:name="com.amazonaws.youruserpools.MyFcmListenerService">
+        <intent-filter>
+            <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+        </intent-filter>
+    </service>
+
+    <service
+        android:name="com.amazonaws.youruserpools.RegistrationIntentService"
+        android:exported="false" >
+        <intent-filter>
+            <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+        </intent-filter>
+    </service>
+
+    </application>
 </manifest>

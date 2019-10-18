@@ -89,6 +89,8 @@ public class AppHelper {
 
 
     public static final String identityPoolId = ;
+    public static final String platformApplicationArn = ;
+    public static final String topicArn = ;
     /**
      * App secret associated with your app id - if the App id does not have an associated App secret,
      * set the App secret to null.

@@ -27,5 +27,13 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    //aws
     implementation 'com.amazonaws:aws-android-sdk-cognitoidentityprovider:2.16.1'
+    implementation 'com.amazonaws:aws-android-sdk-sns:2.16.1'
+    //fcm
+    implementation 'com.google.firebase:firebase-core:17.2.0'
+    implementation 'com.google.firebase:firebase-messaging:20.0.0'
+    implementation 'com.google.android.gms:play-services-base:17.1.0'
 }
+
+apply plugin: 'com.google.gms.google-services'
