@@ -21,7 +21,7 @@ public class SnSUtils implements SubscribeTopicResponse {
     }
 
     @Override
-    public void processFinishGetCredentials(String stuff)
+    public void processFinishSubscribeTopic(String stuff)
     {
         Log.d(TAG, " -- processFinishGetCredentials");
     }

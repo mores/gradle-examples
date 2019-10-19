@@ -75,7 +75,10 @@
 
 
     <service
-        android:name="com.amazonaws.youruserpools.MyFcmListenerService">
+        android:name="com.amazonaws.youruserpools.MyFcmListenerService"
+        android:enabled="true"
+        android:exported="true"
+        >
         <intent-filter>
             <action android:name="com.google.firebase.MESSAGING_EVENT"/>
         </intent-filter>
